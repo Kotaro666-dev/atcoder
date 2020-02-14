@@ -1,102 +1,104 @@
 #include <stdio.h>
 
-int get_head(int num)
+int get_first_digit(int num)
 {
-    int head;
+    int first;
 
     if (num < 10)
     {
-        head = num;
+        first = num;
     }
     else // if (10 <= num)
     {
-        while (10 < num)
+        while (10 <= num)
         {
             num = num / 10;
         }
-        head = num;
+        first = num;
     }
-    return (head);
+    return (first);
 }
 
-int get_tail(int num)
+int get_last_digit(int num)
 {
-    int tail;
+    int last;
 
     if (num < 10)
     {
-        tail = num;
+        last = num;
     }
     else // if (10 < num)
     {
-        tail = num % 10;
+        last = num % 10;
     }
-    return (tail);
+    return (last);
 }
 
 int main(void)
 {
     int N;
-    int i, i_head, i_tail;
-    int j, j_head, j_tail;
-    int counter = 0;
+    int i, i_first, i_last;
+    int j, j_first, j_last;
+    int freq = 0;
 
     scanf("%d", &N);
-    printf("head = %d, tail = %d\n", get_head(N), get_tail(N));
+    // printf("first = %d, last = %d\n", get_first_digit(N), get_last_digit(N));
     for (i = 0; i <= N; i++)
     {
+        // ０はカウントしないため、スキップさせる
         if (i == 0)
         {
-                i++;
+            i++;
         }
         for (j = 0; j <= N; j++)
         {
+            // ０はカウントしないため、スキップさせる
             if (j == 0)
             {
                 j++;
             }
             // iの先頭と末尾の数字を取り出す
-            i_head = get_head(i);
-            i_tail = get_tail(i);
+            i_first = get_first_digit(i);
+            i_last = get_last_digit(i);
 
             // ｊの先頭と末尾の数字をと取り出す
-            j_head = get_head(j);
-            j_tail = get_tail(j);
+            j_first = get_first_digit(j);
+            j_last = get_last_digit(j);
 
-            if (i < 10 && j < 10) // ex: i = 9, j = 9
+            if (i < 10 && j < 10) // ex(i = 9, j = 9)
             {
                 if (i == j)
                 {
-                    printf("(%d, %d),", i, j);
-                    counter++;
+                    // printf("(%d, %d),", i, j);
+                    freq++;
                 }
             }
-            else if (i < 10 && 10 <= j) // ex: i = 9, j = 999
+            else if (i < 10 && 10 <= j) // ex(i = 9, j = 999)
             {
-                if (i_head == j_head && i_head == j_tail)
+                if (i_first == j_first && i_first == j_last)
                 {
-                    printf("(%d, %d),", i, j);
-                    counter++;
+                    // printf("(%d, %d),", i, j);
+                    freq++;
                 }
             }
-            else if (10 <= i && 10 <= j) // i = 999, j == 99
+            else if (10 <= i && 10 <= j) // ex(i = 999, j == 99)
             {
-                if (i_tail == j_head && i_head == j_tail)
+                if (i_last == j_first && i_first == j_last)
                 {
-                    printf("(%d, %d),", i, j);
-                    counter++;
+                    // printf("(%d, %d),", i, j);
+                    freq++;
                 }
             }
-            else if (10 <= i && j < 10)
+            else if (10 <= i && j < 10) //ex(i = 999, j = 9)
             {
-                if (i_head == j_head && i_tail == j_head)
+                if (i_first == j_first && i_last == j_first)
                 {
-                    printf("(%d, %d),", i, j);
-                    counter++;
+                    // printf("(%d, %d),", i, j);
+                    freq++;
                 }
             }
         }
     }
-    printf("%d", counter);
+    printf("%d", freq);
     return (0);
 }
