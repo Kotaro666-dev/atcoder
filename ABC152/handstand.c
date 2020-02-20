@@ -38,6 +38,54 @@ int main(void)
 {
     int N;
     int i, i_first, i_last;
+    int first_digit, last_digit;
+    int freq1 = 0;
+    int freq2 = 0;
+
+    scanf("%d", &N);
+    first_digit = get_first_digit(N);
+    last_digit = get_last_digit(N);
+
+    // printf("first = %d, last = %d\n", get_first_digit(N), get_last_digit(N));
+    for (i = 0; i <= N; i++)
+    {
+        i_first = get_first_digit(i);
+        i_last = get_last_digit(i);
+        // ０はカウントしないため、スキップさせる
+        if (i == 0)
+        {
+            i++;
+        }
+        if (first_digit == i_first && last_digit == i_last)
+        {
+            freq1++;
+        }
+    }
+    printf("freq1 = %d\n", freq1);
+    for (i = 0; i <= N; i++)
+    {
+        i_first = get_first_digit(i);
+        i_last = get_last_digit(i);
+        // ０はカウントしないため、スキップさせる
+        if (i == 0)
+        {
+            i++;
+        }
+        if (first_digit == i_last && last_digit == i_first)
+        {
+            freq2++;
+        }
+    }
+    printf("freq2 = %d\n", freq2);
+    // printf("%d", freq1 * freq2);
+    return (0);
+}
+
+/* 
+int main(void)
+{
+    int N;
+    int i, i_first, i_last;
     int j, j_first, j_last;
     int freq = 0;
 
@@ -102,3 +150,5 @@ int main(void)
     printf("%d", freq);
     return (0);
 }
+
+*/
