@@ -2,7 +2,7 @@
 
 /*--- 異なるn個からr個の整数を取り出す組み合わせの数を返す ---*/
 // 参照サイト：http://zhi-ma.hatenablog.com/entry/2013/10/10/090601
-int combination(int n, int r)
+int combination(long long int n, long long int r)
 {
     if (r == 0 || r == n)
         return (1);
@@ -13,13 +13,13 @@ int combination(int n, int r)
 
 int main(void)
 {
-    unsigned long int n;
-    unsigned long int a, b;
-    unsigned long int pattern[n + 1];
-    unsigned long int i;
-    unsigned long int sum = 0;
+    long long int n;
+    long long int a, b;
+    long long int pattern[n + 1];
+    long long int i;
+    long long int sum = 0;
 
-    scanf("%ld %ld %ld", &n, &a, &b);
+    scanf("%lld %lld %lld", &n, &a, &b);
 
     for (i = 0; i < n + 1; i++)
     {
@@ -31,6 +31,6 @@ int main(void)
         }
     }
     sum %= (1000000000 + 7);
-    printf("%ld", sum);
+    printf("%lld", sum);
     return (0);
 }
