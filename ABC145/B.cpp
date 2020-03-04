@@ -6,12 +6,22 @@
 /*   By: kotaro666 <kotaro0726@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:53:03 by kotaro666         #+#    #+#             */
-/*   Updated: 2020/03/04 19:02:22 by kotaro666        ###   ########.fr       */
+/*   Updated: 2020/03/04 19:05:19 by kotaro666        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <bits/stdc++.h>
 using namespace std;
+
+/*
+bool ans = true;
+  for (int i = 0; i < N/2; i ++){
+    if (S.at(i) != S.at(i + N/2)) {
+      ans = false;
+    }
+  }
+
+ */
 
 int main(int argc, char const *argv[])
 {
