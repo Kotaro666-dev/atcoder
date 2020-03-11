@@ -24,8 +24,9 @@ int main(void)
     int B = Q + R;
     int C = R + P;
 
-    int D = min(A, B);
-    int ans = min(D, C);
+    // int D = min(A, B);
+    // int ans = min(D, C);
+    int ans = min(min(A, B), C);
     cout << ans << endl;
     return (0);
 }
