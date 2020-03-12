@@ -6,7 +6,7 @@
 /*   By: kotaro666 <kotaro0726@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 12:19:56 by kotaro666         #+#    #+#             */
-/*   Updated: 2020/03/12 12:31:14 by kotaro666        ###   ########.fr       */
+/*   Updated: 2020/03/12 12:33:39 by kotaro666        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int main(void)
     ll r, D, x;
     cin >> r >> D >> x;
 
-    ll weight = 0;
-    ll temp = x;
+    ll weight = x;
+    // ll temp = x;
     for (int i = 0; i < 10; i++)
     {
-        weight = r * temp - D;
+        weight = r * weight - D;
         cout << weight << endl;
-        temp = weight;
+        // temp = weight;
     }
 
     return (0);
