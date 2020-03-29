@@ -6,59 +6,39 @@
 /*   By: kotaro666 <kotaro0726@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/28 16:11:49 by kotaro666         #+#    #+#             */
-/*   Updated: 2020/03/28 22:31:23 by kotaro666        ###   ########.fr       */
+/*   Updated: 2020/03/29 11:47:04 by kotaro666        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+◯さんと◯さんの家の距離で最も長いところを探して、全体の距離から最大の長さを引くと最短距離
+https://www.youtube.com/watch?v=PqpfgFt8tsM
+ */
 
 #include <bits/stdc++.h>
 #define PI 3.1415926535897
 using namespace std;
 typedef long long ll;
+const int INF = 1000000000;
 
 int main(void)
 {
     int K, N;
     cin >> K >> N;
 
-    int size = N * 2;
-    vector<int> A(size);
-    bool isZero = false;
-    bool isK = false;
+    vector<int> A(N);
     for (int i = 0; i < N; i++)
     {
         cin >> A[i];
-        if (A[i] == 0)
-        {
-            isZero = true;
-        }
-        if (A[i] == K)
-        {
-            isK = true;
-        }
     }
 
-    // add 0 and K;
-    if (isZero == false)
+    int longest = 0;
+    for (int i = 0; i < N; i++)
     {
-        A[N] = 0;
-        N++;
+        longest = max(longest, A[i + 1] - A[i]);
     }
-    if (isK == false)
-    {
-        A[N] = K;
-        N++;
-    }
-
-    for (int i = N; i < size; i++)
-    {
-        A[i] += A[i - N] + A[N];
-    }
-
-    for (int i = 0; i < size; i++)
-    {
-        printf("%d = %d\n", i, A[i]);
-    }
-
+    longest = max(longest, K + A[0] - A[N - 1]);
+    cout << K - longest << endl;
     return (0);
 }
 
