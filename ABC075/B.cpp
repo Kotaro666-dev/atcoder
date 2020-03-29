@@ -6,7 +6,7 @@
 /*   By: kotaro666 <kotaro0726@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/29 12:03:28 by kotaro666         #+#    #+#             */
-/*   Updated: 2020/03/29 13:03:22 by kotaro666        ###   ########.fr       */
+/*   Updated: 2020/03/29 21:25:16 by kotaro666        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int main(void)
 
     H += 2;
     W += 2;
-    vector<string> S(H);
+    // vector<string> S(H);
+    vector<vector<char>> S(H, vector<char>(W));
     // init
     for (int i = 0; i < H; i++)
     {
@@ -82,9 +83,6 @@ int main(void)
             }
         }
     }
-
-    printf("\n-----test----\n");
-
     for (int i = 1; i < H - 1; i++)
     {
         for (int j = 1; j < W - 1; j++)
