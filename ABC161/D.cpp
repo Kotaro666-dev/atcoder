@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   C.cpp                                              :+:      :+:    :+:   */
+/*   D.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kotaro666 <kotaro0726@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/04 20:19:57 by kotaro666         #+#    #+#             */
-/*   Updated: 2020/04/04 22:08:48 by kotaro666        ###   ########.fr       */
+/*   Created: 2020/04/04 22:16:39 by kotaro666         #+#    #+#             */
+/*   Updated: 2020/04/04 22:38:13 by kotaro666        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,41 +20,44 @@ const double EPS = 1e-10;            //
 
 int main(void)
 {
-    ll N, K;
-    cin >> N >> K;
+    int K;
+    cin >> K;
 
-    ll minimum = N;
-
-    if (N % K == 0)
+    if (K <= 12)
     {
-        minimum = 0;
-        cout << minimum << endl;
+        cout << K << endl;
         return 0;
     }
-    else
-    {
-        N = N % K;
-    }
-    // if (N > INF)
-    // {
-    //     N = N / INF;
-    //     // K = K * INF;
-    //     printf("N = %d\n", N);
-    //     printf("M / K = %d\n", N % K);
-    //     // printf("K = %d\n", K);
-    // }
-    ll counter = 0;
 
-    while (counter <= 10000)
+    int counter = 0;
+    int num = 1;
+    string str;
+    bool lunlun = true;
+    int a, b;
+    int ans;
+    while (counter < K - 1)
     {
-        N = abs(N - K);
-        minimum = min(minimum, N);
-        if (minimum == 1)
+        str = to_string(num);
+        lunlun = true;
+        for (int i = 0; i < str.size() - 1; i++)
         {
-            break;
+            a = str[i] - '0';
+            b = str[i + 1] - '0';
+            if (!(abs(a - b) <= 1))
+            {
+                lunlun = false;
+                break;
+            }
         }
-        counter++;
+        if (lunlun == true)
+        {
+            counter++;
+            ans = num;
+            // printf("%d ", ans);
+        }
+        num++;
     }
-    cout << minimum << endl;
+    // printf("\n");
+    cout << num << endl;
     return (0);
 }

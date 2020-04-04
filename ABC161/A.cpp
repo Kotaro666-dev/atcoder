@@ -6,7 +6,7 @@
 /*   By: kotaro666 <kotaro0726@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/04 20:20:10 by kotaro666         #+#    #+#             */
-/*   Updated: 2020/04/04 20:20:12 by kotaro666        ###   ########.fr       */
+/*   Updated: 2020/04/04 21:04:31 by kotaro666        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@ const double EPS = 1e-10;            //
 
 int main(void)
 {
+    int A, B, C;
+    cin >> A >> B >> C;
 
+    int temp;
+    temp = A;
+    A = B;
+    B = temp;
+
+    temp = A;
+    A = C;
+    C = temp;
+    printf("%d %d %d\n", A, B, C);
     return (0);
 }
