@@ -6,7 +6,7 @@
 /*   By: kotaro666 <kotaro0726@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/05 19:35:10 by kotaro666         #+#    #+#             */
-/*   Updated: 2020/04/05 19:50:47 by kotaro666        ###   ########.fr       */
+/*   Updated: 2020/04/05 20:06:18 by kotaro666        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,21 @@ int main(void)
 {
     int K, S;
     cin >> K >> S;
+
+    int X, Y, Z;
+    int ans = 0;
+    for (X = 0; X <= K; X++)
+    {
+        for (Y = 0; Y <= K; Y++)
+        {
+            Z = S - X - Y;
+            if (Z >= 0 && Z <= K && X + Y + Z == S)
+            {
+                // printf("%d %d %d\n", X, Y, Z);
+                ans++;
+            }
+        }
+    }
+    cout << ans << endl;
     return (0);
 }
