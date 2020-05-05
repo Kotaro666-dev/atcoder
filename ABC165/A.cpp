@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 11:37:02 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/05/02 21:13:15 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/05/05 12:49:09 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int main(void)
             break;
         }
     }
-
     cout << ans << endl;
     return (0);
 }
