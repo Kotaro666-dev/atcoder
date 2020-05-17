@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 12:18:26 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/05/17 12:18:28 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/05/17 21:03:59 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,24 @@ const double EPS = 1e-10;
 
 int main(void)
 {
+    string N;
+    cin >> N;
 
+    char temp = N[N.size() - 1];
+    int one = temp - '0';
+    string ans;
+    if (one == 3)
+    {
+        ans = "bon";
+    }
+    else if (one == 0 || one == 1 || one == 6 || one == 8)
+    {
+        ans = "pon";
+    }
+    else
+    {
+        ans = "hon";
+    }
+    cout << ans << endl;
     return (0);
 }

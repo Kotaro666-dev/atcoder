@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 12:18:23 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/05/17 12:18:25 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/05/17 21:06:28 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,24 @@ const double EPS = 1e-10;
 
 int main(void)
 {
+    int K;
+    cin >> K;
+    string S;
+    cin >> S;
 
+    int length = S.size();
+    if (length <= K)
+    {
+        cout << S << endl;
+        return (0);
+    }
+    else
+    {
+        for (int i = 0; i < K; i++)
+        {
+            cout << S[i];
+        }
+        cout << "..." << endl;
+    }
     return (0);
 }
