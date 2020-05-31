@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/30 20:26:23 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/05/30 20:26:26 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/05/31 19:32:43 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,43 @@ const double EPS = 1e-10;
 
 int main(void)
 {
+    int h1, m1, h2, m2, k;
+    cin >> h1 >> m1 >> h2 >> m2 >> k;
 
+    int ans;
+
+    ans = ((h2 - h1) * 60) + (m2 - m1) - k;
+    // if (h1 <= h2)
+    // {
+    //     if (m2 >= m1)
+    //     {
+    //         ans = (h2 - h1) * 60;
+    //         ans += (m2 - m1);
+    //         ans -= k;
+    //     }
+    //     else if (m2 < m1)
+    //     {
+    //         ans = (h2 - h1 - 1) * 60;
+    //         ans += (60 - m1);
+    //         ans -= k;
+    //     }
+    // }
+    // else if
+    // {
+    //     if (m2 >= m1)
+    //     {
+    //         ans = ((24 - h1) + h2) * 60;
+    //         ans += (m2 - m1);
+    //         ans -= k;
+    //     }
+    //     else if (m2 < m1)
+    //     {
+    //         ans = ((24 - h1) + h2 - 1) * 60;
+    //         ans += (60 - m1);
+    //         ans -= k;
+    //     }
+    // }
+    cout
+        << ans << endl;
     return (0);
 }
