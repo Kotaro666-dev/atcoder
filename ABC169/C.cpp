@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/31 19:34:18 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/05/31 19:34:19 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/01 10:24:47 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ const double EPS = 1e-10;
 
 int main(void)
 {
+    ll A;
+    double B;
+    cin >> A >> B;
 
+    ll B100 = (ll)(B * 100 + 0.0001);
+    ll ans = A * B100 / 100;
+    cout << ans << endl;
     return (0);
 }
