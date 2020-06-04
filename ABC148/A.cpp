@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   A.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kotaro666 <kotaro0726@gmail.com>           +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 20:20:48 by kotaro666         #+#    #+#             */
-/*   Updated: 2020/03/03 20:20:48 by kotaro666        ###   ########.fr       */
+/*   Updated: 2020/06/04 11:28:01 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -27,6 +25,6 @@ int main()
     //     if (i != A && i != B)
     //         ans = i;
     // }
-    
+
     cout << ans << endl;
 }
