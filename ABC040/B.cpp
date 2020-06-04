@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/15 12:00:38 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/04/15 13:55:23 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/04 09:51:38 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,32 +21,30 @@ const double EPS = 1e-10;
 int main(void)
 {
     int n;
-
     cin >> n;
 
-    int diff;
-    int remain;
-    int ans;
-    int total = 0;
+    // int diff_square;
+    // int diff_reqtangle;
 
-    ans = INF;
-    int x, y;
-    for (x = 1; x <= n; x++)
+    int max = sqrt(n);
+    int diff;
+    int min_diff = INF;
+    for (int i = 1; i <= max; i++)
     {
-        for (y = 1; y <= n / 2; y++)
+        for (int j = 1; j <= n; j++)
         {
-            if (x * y <= n)
+            if (i * j <= n)
             {
-                diff = abs(x - y);
-                remain = n - (x * y);
-                total = diff + remain;
-            }
-            if (ans > total)
-            {
-                ans = total;
+                diff = (n - (i * j)) + abs(i - j);
+                if (diff < min_diff)
+                {
+                    min_diff = diff;
+                    // printf("%d %d\n", i, j);
+                }
             }
         }
     }
+    int ans = min_diff;
     cout << ans << endl;
     return (0);
 }
