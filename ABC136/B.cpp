@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   B.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kotaro666 <kotaro0726@gmail.com>           +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 18:51:25 by kotaro666         #+#    #+#             */
-/*   Updated: 2020/03/08 20:08:58 by kotaro666        ###   ########.fr       */
+/*   Updated: 2020/06/04 10:46:02 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,18 @@ int main(int argc, char const *argv[])
     int counter = 0;
     for (int i = 1; i <= N; i++)
     {
-        if (i < 10 && i / 10 == 0)
+        if (i < 10)
+        {
             counter++;
-        else if ((i >= 100 && i <= 999) && i / 1000 == 0)
+        }
+        else if (i >= 100 && i <= 999)
+        {
             counter++;
-        else if ((i >= 10000 && i <= 99999) && i / 100000 == 0)
+        }
+        else if (i >= 10000 && i <= 99999)
+        {
             counter++;
+        }
     }
     cout << counter << endl;
     return 0;
