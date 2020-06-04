@@ -3,43 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   C.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kotaro666 <kotaro0726@gmail.com>           +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 20:21:00 by kotaro666         #+#    #+#             */
-/*   Updated: 2020/03/03 20:21:00 by kotaro666        ###   ########.fr       */
+/*   Updated: 2020/06/04 23:02:13 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-最小公倍数を求める問題
-
- */
-
-
 #include <bits/stdc++.h>
+#define PI 3.1415926535897
 using namespace std;
+typedef long long ll;
+const int INF = 1000000000;
+const ll LINF = 1000000000000000000; //1e18
+const double EPS = 1e-10;
 
-long int gcd(long int A, long int B)
+ll gcd(ll a, ll b)
 {
-    if (A % B == 0)
+    if (a % b == 0)
     {
-        return (B);
+        return (b);
     }
     else
     {
-        return (gcd(B, A % B));
+        return (gcd(b, a % b));
     }
 }
 
-long int lcm(long int A, long int B)
+ll lcm(ll a, ll b)
 {
-    return A * B / gcd(A, B);
+    return a / gcd(a, b) * b;
 }
 
-int main()
+int main(void)
 {
-    long int A, B;
+    ll A, B;
     cin >> A >> B;
 
-    cout << lcm(A, B) << endl;
+    ll result = lcm(A, B);
+    cout << result << endl;
+    return (0);
 }
