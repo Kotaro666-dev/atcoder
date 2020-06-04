@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/11 10:50:34 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/05/11 12:24:45 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/04 10:24:10 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,22 @@ const int INF = 1000000000;
 const ll LINF = 1000000000000000000; //1e18
 const double EPS = 1e-10;
 
+// 参考サイト：https://stackoverflow.com/questions/2686542/converting-integer-to-a-bit-representation
+// vector<int> convert(int x)
+// {
+//     vector<int> ret;
+//     while (x)
+//     {
+//         if (x & 1)
+//             ret.push_back(1);
+//         else
+//             ret.push_back(0);
+//         x >>= 1;
+//     }
+//     reverse(ret.begin(), ret.end());
+//     return ret;
+// }
+
 int main(void)
 {
     int n, X;
@@ -29,13 +45,16 @@ int main(void)
     {
         cin >> a[i];
     }
-    unsigned long bit = bitset<2>(X);
-    string bin = to_string(bit);
+    // vector<int> bts = convert(X);
 
     int ans = 0;
-    for (int i = 0; i < bin.size(); i++)
+    for (int i = 0; i < a.size(); i++)
     {
-        if (bin[i] == '1')
+        // if (bts[i] == 1)
+        // {
+        //     ans += a[i];
+        // }
+        if (X >> i & 1)
         {
             ans += a[i];
         }
