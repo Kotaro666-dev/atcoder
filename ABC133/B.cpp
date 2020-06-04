@@ -3,56 +3,132 @@
 /*                                                        :::      ::::::::   */
 /*   B.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kotaro666 <kotaro0726@gmail.com>           +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:29:03 by kotaro666         #+#    #+#             */
-/*   Updated: 2020/03/10 11:38:28 by kotaro666        ###   ########.fr       */
+/*   Updated: 2020/06/04 11:23:31 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// couldn't solve yet...
-
 #include <bits/stdc++.h>
+#define PI 3.1415926535897
 using namespace std;
+typedef long long ll;
+const int INF = 1000000000;
+const ll LINF = 1000000000000000000; //1e18
+const double EPS = 1e-10;
 
-int main(int argc, char const *argv[])
+int main(void)
 {
-    int N, D;
-    cin >> N >> D;
+    int n, d;
+    cin >> n >> d;
 
-    vector<vector<int>> X(N, vector<int>(D));
-    for (int i = 0; i < N; i++)
+    vector<vector<int>> map(n, vector<int>(d));
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < D; j++)
+        for (int j = 0; j < d; j++)
         {
-            cin >> X.at(i).at(j);
+            cin >> map[i][j];
         }
     }
 
-    int distance;
-    int counter = 0;
-    for (int i = 0; i < N - 1; i++)
+    // int sum;
+    // int ans = 0;
+    // int num;
+    // for (int i = 0; i < n - 1; i++)
+    // {
+    //     sum = 0;
+    //     for (int j = 0; j < d; j++)
+    //     {
+    //         sum += pow(abs((map[i][j]) - map[i + 1][j]), 2);
+    //     }
+    //     num = sqrt(sum);
+    //     if (num * num == sum)
+    //     {
+    //         ans++;
+    //     }
+    // }
+
+    // sum = 0;
+    // for (int i = 0; i < d; i++)
+    // {
+    //     sum += pow(abs(map[n - 1][i] - map[0][i]), 2);
+    // }
+    // num = sqrt(sum);
+    // if (num * num == sum)
+    // {
+    //     ans++;
+    // }
+
+    int ans = 0;
+    for (int i = 0; i < n; ++i)
     {
-        distance = 0;
-        for (int j = 0; j < D; j++)
+        for (int j = i + 1; j < n; ++j)
         {
-            if (i != N - 1)
+            int norm = 0;
+            for (int k = 0; k < d; ++k)
             {
-                distance += (X.at(i).at(j) - X.at(i + 1).at(j)) *
-                            (X.at(i).at(j) - X.at(i + 1).at(j));
+                int diff = abs(map[i][k] - map[j][k]);
+                norm += diff * diff;
             }
-            else
+            // check whether norm = k for some k
+            bool flag = false;
+            for (int k = 0; k <= norm; ++k)
             {
-                distance += (X.at(i).at(j) - X.at(i + 1).at(j)) *
-                            (X.at(0).at(j) - X.at(0).at(j));
+                if (k * k == norm)
+                {
+                    flag = true;
+                }
             }
-        }
-        cout << distance << endl;
-        if (sqrt(distance) == (int)(sqrt(distance)))
-        {
-            counter++;
+            if (flag)
+                ++ans;
         }
     }
-    cout << counter << endl;
-    return 0;
+    cout << ans << endl;
+    return (0);
 }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main(int argc, char const *argv[])
+// {
+//     int N, D;
+//     cin >> N >> D;
+
+//     vector<vector<int>> X(N, vector<int>(D));
+//     for (int i = 0; i < N; i++)
+//     {
+//         for (int j = 0; j < D; j++)
+//         {
+//             cin >> X.at(i).at(j);
+//         }
+//     }
+
+//     int distance;
+//     int counter = 0;
+//     for (int i = 0; i < N - 1; i++)
+//     {
+//         distance = 0;
+//         for (int j = 0; j < D; j++)
+//         {
+//             if (i != N - 1)
+//             {
+//                 distance += (X.at(i).at(j) - X.at(i + 1).at(j)) *
+//                             (X.at(i).at(j) - X.at(i + 1).at(j));
+//             }
+//             else
+//             {
+//                 distance += (X.at(i).at(j) - X.at(i + 1).at(j)) *
+//                             (X.at(0).at(j) - X.at(0).at(j));
+//             }
+//         }
+//         cout << distance << endl;
+//         if (sqrt(distance) == (int)(sqrt(distance)))
+//         {
+//             counter++;
+//         }
+//     }
+//     cout << counter << endl;
+//     return 0;
+// }
