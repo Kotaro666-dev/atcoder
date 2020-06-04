@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   B.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kotaro666 <kotaro0726@gmail.com>           +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/06 00:50:06 by kotaro666         #+#    #+#             */
-/*   Updated: 2020/04/06 01:22:17 by kotaro666        ###   ########.fr       */
+/*   Updated: 2020/06/04 09:33:05 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,31 +23,29 @@ int main(void)
     int H, W;
     cin >> H >> W;
 
-    vector<vector<char>> C(H, vector<char>(W));
+    vector<vector<char>> map(H, vector<char>(W));
     for (int i = 0; i < H; i++)
     {
         for (int j = 0; j < W; j++)
         {
-            cin >> C[i][j];
+            cin >> map[i][j];
         }
     }
 
-    int temp;
-    int counter = 0;
+    // debug
     for (int i = 0; i < H; i++)
     {
-        for (int j = 0; j < W; j++)
+        int counter = 0;
+        while (counter < 2)
         {
-            temp = (int)(double((i + 1) / 2));
-            printf("%c", C[temp][j]);
+            for (int j = 0; j < W; j++)
+            {
+                cout << map[i][j];
+            }
+            printf("\n");
+            counter++;
         }
-        printf("\n");
-        for (int k = 0; k < W; k++)
-        {
-            temp = (int)(double((i + 1) / 2));
-            printf("%c", C[temp][k]);
-        }
-        printf("\n");
     }
+
     return (0);
 }
