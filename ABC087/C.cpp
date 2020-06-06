@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 22:15:36 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/06 23:08:09 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/07 00:55:15 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,65 @@ int main(void)
         cin >> lower[i];
     }
 
-    int sum;
-    int mx = -1;
+    vector<int> rui_upper(N + 1, 0);
+    vector<int> rui_lower(N + 1, 0);
     for (int i = 0; i < N; i++)
     {
-        sum = 0;
-        for (int k = 0; k <= i; k++)
-        {
-            sum += upper[k];
-        }
-        for (int j = i; j < N; j++)
-        {
-            sum += lower[j];
-        }
-        mx = max(mx, sum);
+        rui_upper[i + 1] = rui_upper[i] + upper[i];
+        rui_lower[i + 1] = rui_lower[i] + lower[i];
     }
-    int ans = mx;
-    cout << ans << endl;
+
+    // debug
+    // for (int i = 1; i < N + 1; i++)
+    // {
+    //     cout << rui_lower[i] << " ";
+    // }
+
+    int sum = 0;
+    int mx = -1;
+    for (int i = 1; i < N + 1; i++)
+    {
+        sum = rui_upper[i] + rui_lower[N] - rui_lower[i - 1];
+        // printf("%d %d\n", rui_upper[i], rui_lower[N] - rui_lower[i - 1]);
+        mx = max(sum, mx);
+    }
+    cout << mx << endl;
 }
+
+// int main(void)
+// {
+//     int N;
+//     cin >> N;
+
+//     vector<int> upper(N);
+//     vector<int> lower(N);
+//     for (int i = 0; i < N; i++)
+//     {
+//         cin >> upper[i];
+//     }
+//     for (int i = 0; i < N; i++)
+//     {
+//         cin >> lower[i];
+//     }
+
+//     int sum;
+//     int mx = -1;
+//     for (int i = 0; i < N; i++)
+//     {
+//         sum = 0;
+//         for (int k = 0; k <= i; k++)
+//         {
+//             sum += upper[k];
+//         }
+//         for (int j = i; j < N; j++)
+//         {
+//             sum += lower[j];
+//         }
+//         mx = max(mx, sum);
+//     }
+//     int ans = mx;
+//     cout << ans << endl;
+// }
 
 // int main(void)
 // {
