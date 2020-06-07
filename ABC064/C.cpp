@@ -6,9 +6,14 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 00:21:38 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/08 00:49:52 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/08 00:54:41 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// 問題文を誤解
+// レートが 3200以上になると色を自由に変えることができます。
+// →リストに上がっていない色なんでもOK
+// つまり、色の種類数の最大値は無限大
 
 #include <bits/stdc++.h>
 #define PI 3.1415926535897
@@ -22,48 +27,47 @@ int main(void)
 {
     int N;
     cin >> N;
-    vector<bool> color(9, false);
-    int red = 0;
 
-    vector<int> a(N);
+    vector<bool> color(8, false);
+    int red = 0;
+    int num;
     for (int i = 0; i < N; i++)
     {
-        cin >> a[i];
-        if (a[i] <= 399)
+        cin >> num;
+        if (num <= 399)
         {
             color[0] = true;
         }
-        else if (a[i] >= 400 && a[i] <= 799)
+        else if (num >= 400 && num <= 799)
         {
             color[1] = true;
         }
-        else if (a[i] >= 800 && a[i] <= 1199)
+        else if (num >= 800 && num <= 1199)
         {
             color[2] = true;
         }
-        else if (a[i] >= 1200 && a[i] <= 1599)
+        else if (num >= 1200 && num <= 1599)
         {
             color[3] = true;
         }
-        else if (a[i] >= 1600 && a[i] <= 1999)
+        else if (num >= 1600 && num <= 1999)
         {
             color[4] = true;
         }
-        else if (a[i] >= 2000 && a[i] <= 2399)
+        else if (num >= 2000 && num <= 2399)
         {
             color[5] = true;
         }
-        else if (a[i] >= 2400 && a[i] <= 2799)
+        else if (num >= 2400 && num <= 2799)
         {
             color[6] = true;
         }
-        else if (a[i] >= 2800 && a[i] <= 3199)
+        else if (num >= 2800 && num <= 3199)
         {
             color[7] = true;
         }
         else
         {
-            color[8] = true;
             red++;
         }
     }
