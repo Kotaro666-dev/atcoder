@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 18:20:55 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/06 19:32:59 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/11 09:46:10 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int main(void)
             ans = min(ans, move);
         }
     }
-    cout << ans << endl;
+    cout << ans << "\n";
     return (0);
 }
