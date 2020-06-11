@@ -6,9 +6,12 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/11 15:07:02 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/11 15:18:48 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/11 15:24:38 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// push_back -> reverse = 数列の頭もしくはお尻に数字を挿入していくこと
+// i番目が偶奇で判別して、dequeのpush_front or push_backでいれていく
 
 #include <bits/stdc++.h>
 #define PI 3.1415926535897
