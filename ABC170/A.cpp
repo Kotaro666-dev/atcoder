@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/14 14:57:17 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/14 14:57:20 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/14 21:01:05 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ const double EPS = 1e-10;
 
 int main(void)
 {
+    vector<int> num(5);
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> num[i];
+        if (num[i] == 0)
+        {
+            printf("%d\n", i + 1);
+            return (0);
+        }
+    }
 
     return (0);
 }

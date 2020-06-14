@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/14 14:57:13 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/14 14:57:15 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/14 21:04:33 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,23 @@ const double EPS = 1e-10;
 
 int main(void)
 {
+    int X, Y;
+    cin >> X >> Y;
 
+    for (int i = 0; i <= X; i++)
+    {
+        for (int j = 0; j <= Y; j++)
+        {
+            if (i + j == X)
+            {
+                if (2 * i + 4 * j == Y)
+                {
+                    printf("Yes\n");
+                    return (0);
+                }
+            }
+        }
+    }
+    printf("No\n");
     return (0);
 }

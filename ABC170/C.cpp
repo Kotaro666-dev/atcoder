@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/14 14:57:08 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/14 14:57:12 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/14 21:45:40 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,94 @@ const double EPS = 1e-10;
 
 int main(void)
 {
+    int X, N;
+    cin >> X >> N;
 
+    if (N == 0)
+    {
+        printf("%d\n", X);
+        return (0);
+    }
+
+    vector<int> p(N);
+    bool isX = true;
+    for (int i = 0; i < N; i++)
+    {
+        cin >> p[i];
+        if (p[i] == X)
+        {
+            isX = false;
+        }
+    }
+    if (isX == true)
+    {
+        printf("%d\n", X);
+        return (0);
+    }
+
+    sort(p.begin(), p.end());
+
+    // ++
+    int temp = X + 1;
+    int right;
+    bool found = false;
+    while (true)
+    {
+        for (int i = 0; i < N; i++)
+        {
+            if (p[i] == temp)
+            {
+                break;
+            }
+
+            if (i == N - 1)
+            {
+                right = temp;
+                found = true;
+                break;
+            }
+        }
+        if (found == true)
+        {
+            break;
+        }
+        temp++;
+    }
+
+    // --
+    temp = X - 1;
+    int left;
+    found = false;
+    while (true)
+    {
+        for (int i = 0; i < N; i++)
+        {
+            if (p[i] == temp)
+            {
+                break;
+            }
+
+            if (i == N - 1)
+            {
+                left = temp;
+                found = true;
+                break;
+            }
+        }
+        if (found == true)
+        {
+            break;
+        }
+        temp--;
+    }
+
+    if (abs(X - right) < abs(X - left))
+    {
+        printf("%d\n", right);
+    }
+    else
+    {
+        printf("%d\n", left);
+    }
     return (0);
 }
