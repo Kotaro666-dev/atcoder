@@ -6,9 +6,11 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/14 14:57:04 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/14 22:10:38 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/15 10:27:37 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// エラトステネスのふるいを使った方法もある。
 
 #include <bits/stdc++.h>
 #define PI 3.1415926535897
@@ -18,52 +20,93 @@ const int INF = 1000000000;
 const ll LINF = 1000000000000000000; //1e18
 const double EPS = 1e-10;
 
-bool isPrime(int n, int i = 2)
-{
-    // Base cases
-    if (n <= 2)
-        return (n == 2) ? true : false;
-    if (n % i == 0)
-        return false;
-    if (i * i > n)
-        return true;
-
-    // Check for next divisor
-    return isPrime(n, i + 1);
-}
+const int M = 1e6 + 5;
 
 int main(void)
 {
     int N;
     cin >> N;
-
-    int num;
-    set<int> st;
-    // int mx = -1;
+    int mx = -1;
+    vector<int> A(N);
     for (int i = 0; i < N; i++)
     {
-        cin >> num;
-        st.insert(num);
+        cin >> A[i];
     }
 
-    // find prime number
-    int ans = 0;
-    for (auto itr = st.begin(); itr != st.end(); itr++)
+    vector<int> checker(M, 0);
+    int x;
+    for (int i = 0; i < N; i++)
     {
-        if (isPrime(*itr))
+        x = A[i];
+        if (checker[x] != 0)
         {
-            ans++;
-            st.erase(itr);
+            checker[x] = 2;
+            continue;
+        }
+        for (int j = x; j < M; j += x)
+        {
+            checker[j]++;
         }
     }
-
-    for (auto itr = st.begin(); itr != st.end(); itr++)
+    int ans = 0;
+    for (int i = 0; i < N; i++)
     {
-        cout << *itr << endl;
+        x = A[i];
+        if (checker[x] == 1)
+        {
+            ans++;
+        }
     }
     cout << ans << endl;
     return (0);
 }
+
+// bool isPrime(int n, int i = 2)
+// {
+//     // Base cases
+//     if (n <= 2)
+//         return (n == 2) ? true : false;
+//     if (n % i == 0)
+//         return false;
+//     if (i * i > n)
+//         return true;
+
+//     // Check for next divisor
+//     return isPrime(n, i + 1);
+// }
+
+// int main(void)
+// {
+//     int N;
+//     cin >> N;
+
+//     int num;
+//     set<int> st;
+//     // int mx = -1;
+//     for (int i = 0; i < N; i++)
+//     {
+//         cin >> num;
+//         st.insert(num);
+//     }
+
+//     // find prime number
+//     int ans = 0;
+//     for (auto itr = st.begin(); itr != st.end(); itr++)
+//     {
+//         if (isPrime(*itr))
+//         {
+//             ans++;
+//             st.erase(itr);
+//         }
+//     }
+
+//     for (auto itr = st.begin(); itr != st.end(); itr++)
+//     {
+//         cout << *itr << endl;
+//     }
+//     cout << ans << endl;
+//     return (0);
+// }
 
 // int main(void)
 // {

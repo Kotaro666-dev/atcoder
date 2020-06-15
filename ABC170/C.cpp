@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/14 14:57:08 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/14 21:45:40 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/15 09:43:58 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,84 +30,135 @@ int main(void)
     }
 
     vector<int> p(N);
-    bool isX = true;
     for (int i = 0; i < N; i++)
     {
         cin >> p[i];
-        if (p[i] == X)
-        {
-            isX = false;
-        }
     }
-    if (isX == true)
-    {
-        printf("%d\n", X);
-        return (0);
-    }
-
     sort(p.begin(), p.end());
 
-    // ++
-    int temp = X + 1;
-    int right;
-    bool found = false;
-    while (true)
+    int temp = INF;
+    int mn = INF;
+    int ans;
+    bool ok = false;
+    for (int i = 0; i <= 101; i++)
     {
-        for (int i = 0; i < N; i++)
+        ok = false;
+        for (int j = 0; j < N; j++)
         {
-            if (p[i] == temp)
+            if (i == p[j])
             {
                 break;
             }
-
-            if (i == N - 1)
+            if (j == N - 1)
             {
-                right = temp;
-                found = true;
-                break;
+                // printf("num = %d\n", i);
+                ok = true;
             }
         }
-        if (found == true)
+        if (ok == true)
         {
-            break;
-        }
-        temp++;
-    }
-
-    // --
-    temp = X - 1;
-    int left;
-    found = false;
-    while (true)
-    {
-        for (int i = 0; i < N; i++)
-        {
-            if (p[i] == temp)
+            temp = abs(i - X);
+            if (temp < mn)
             {
-                break;
-            }
-
-            if (i == N - 1)
-            {
-                left = temp;
-                found = true;
-                break;
+                mn = temp;
+                ans = i;
             }
         }
-        if (found == true)
-        {
-            break;
-        }
-        temp--;
     }
-
-    if (abs(X - right) < abs(X - left))
-    {
-        printf("%d\n", right);
-    }
-    else
-    {
-        printf("%d\n", left);
-    }
+    cout << ans << endl;
     return (0);
 }
+
+// int main(void)
+// {
+//     int X, N;
+//     cin >> X >> N;
+
+//     if (N == 0)
+//     {
+//         printf("%d\n", X);
+//         return (0);
+//     }
+
+//     vector<int> p(N);
+//     bool isX = true;
+//     for (int i = 0; i < N; i++)
+//     {
+//         cin >> p[i];
+//         if (p[i] == X)
+//         {
+//             isX = false;
+//         }
+//     }
+//     if (isX == true)
+//     {
+//         printf("%d\n", X);
+//         return (0);
+//     }
+
+//     sort(p.begin(), p.end());
+
+//     // ++
+//     int temp = X + 1;
+//     int right;
+//     bool found = false;
+//     while (true)
+//     {
+//         for (int i = 0; i < N; i++)
+//         {
+//             if (p[i] == temp)
+//             {
+//                 break;
+//             }
+
+//             if (i == N - 1)
+//             {
+//                 right = temp;
+//                 found = true;
+//                 break;
+//             }
+//         }
+//         if (found == true)
+//         {
+//             break;
+//         }
+//         temp++;
+//     }
+
+//     // --
+//     temp = X - 1;
+//     int left;
+//     found = false;
+//     while (true)
+//     {
+//         for (int i = 0; i < N; i++)
+//         {
+//             if (p[i] == temp)
+//             {
+//                 break;
+//             }
+
+//             if (i == N - 1)
+//             {
+//                 left = temp;
+//                 found = true;
+//                 break;
+//             }
+//         }
+//         if (found == true)
+//         {
+//             break;
+//         }
+//         temp--;
+//     }
+
+//     if (abs(X - right) < abs(X - left))
+//     {
+//         printf("%d\n", right);
+//     }
+//     else
+//     {
+//         printf("%d\n", left);
+//     }
+//     return (0);
+// }

@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/14 14:57:13 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/14 21:04:33 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/15 09:30:46 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,39 @@ int main(void)
     int X, Y;
     cin >> X >> Y;
 
+    int j;
     for (int i = 0; i <= X; i++)
     {
-        for (int j = 0; j <= Y; j++)
+        j = X - i;
+        if (i * 2 + j * 4 == Y)
         {
-            if (i + j == X)
-            {
-                if (2 * i + 4 * j == Y)
-                {
-                    printf("Yes\n");
-                    return (0);
-                }
-            }
+            printf("Yes\n");
+            return (0);
         }
     }
     printf("No\n");
     return (0);
 }
+
+// int main(void)
+// {
+//     int X, Y;
+//     cin >> X >> Y;
+
+//     for (int i = 0; i <= X; i++)
+//     {
+//         for (int j = 0; j <= Y; j++)
+//         {
+//             if (i + j == X)
+//             {
+//                 if (2 * i + 4 * j == Y)
+//                 {
+//                     printf("Yes\n");
+//                     return (0);
+//                 }
+//             }
+//         }
+//     }
+//     printf("No\n");
+//     return (0);
+// }
