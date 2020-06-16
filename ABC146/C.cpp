@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/16 18:01:05 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/16 18:45:42 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/16 18:58:04 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(void)
     while (right - left > 1)
     {
         ll mid = (left + right) / 2;
-        if (A * mid + B * to_string(B).size() > X)
+        if (A * mid + B * to_string(mid).size() > X)
         {
             right = mid;
         }
