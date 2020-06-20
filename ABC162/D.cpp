@@ -6,9 +6,12 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/12 21:24:14 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/04/12 22:33:48 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/20 11:59:41 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// 参考サイト：https://drken1215.hatenablog.com/entry/2020/04/12/225900
+//　考え方重要：すべてのパターン - 制約に当てはまるものを引く
 
 #pragma GCC optimize("Ofast")
 #include <bits/stdc++.h>
@@ -23,105 +26,93 @@ int main(void)
 {
     int N;
     cin >> N;
+
     string S;
     cin >> S;
 
-    int ans = 0;
-    int i, j, k;
-    for (i = 0; i < N - 3; i++)
+    int r = 0, g = 0, b = 0;
+    for (int i = 0; i < N; i++)
     {
-        for (j = i + 1; j < N - 1; j++)
+        char x = S[i];
+        if (x == 'R')
         {
-            if (S[i] != S[j])
-            {
-                if (j - i == 1)
-                {
-                    k = j + 2;
-                    for (; k < N; k++)
-                    {
-                        if (j - i == k - j)
-                        {
-                            // printf("%d %d %d\n", i, j, k);
-                            continue;
-                        }
-                        if (S[i] != S[k] && S[j] != S[k])
-                        {
-                            // printf("%d %d %d\n", i, j, k);
-                            ans++;
-                        }
-                    }
-                }
-                else
-                {
-                    k = j + 1;
-                    for (; k < N; k++)
-                    {
-                        if (j - i == k - j)
-                        {
-                            // printf("%d %d %d\n", i, j, k);
-                            continue;
-                        }
-                        if (S[i] != S[k] && S[j] != S[k])
-                        {
-                            // printf("%d %d %d\n", i, j, k);
-                            ans++;
-                        }
-                    }
-                }
-                // for (; k < N; k++)
-                // {
-                //     if (j - i == k - j)
-                //     {
-                //         // printf("%d %d %d\n", i, j, k);
-                //         continue;
-                //     }
-                //     if (S[i] != S[k] && S[j] != S[k])
-                //     {
-                //         // printf("%d %d %d\n", i, j, k);
-                //         ans++;
-                //     }
-                // }
-            }
+            r++;
+        }
+        else if (x == 'G')
+        {
+            g++;
+        }
+        else
+        {
+            b++;
         }
     }
+    ll all = r * g * b;
+    ll sub = 0;
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = i + 1; j < N; j++)
+        {
+            if (S[i] == S[j])
+            {
+                continue;
+            }
+            int k = j * 2 - i;
+            if (k >= N || S[k] == S[i] || S[k] == S[j])
+            {
+                continue;
+            }
+            sub++;
+        }
+    }
+    ll ans = all - sub;
     cout << ans << endl;
     return (0);
 }
 
-/*
-int main(void)
-{
-    int N;
-    cin >> N;
-    string S;
-    cin >> S;
+// int main(void)
+// {
+//     int N;
+//     cin >> N;
 
-    int ans = 0;
-    int i, j, k;
+//     string S;
+//     cin >> S;
+//     const int M = S.size();
 
-    for (int i = 0; i < N - 3; i++)
-    {
-        for (int k = N - 1; k >= 3; k--)
-        {
-            if (j != (k + i) / 2)
-            {
-                for (int j = i + 1; j < k; j++)
-                {
-                    if (j - i == k - j)
-                    {
-                        // printf("%d %d %d\n", i, j, k);
-                        continue;
-                    }
-                    if (S[i] != S[j] && S[i] != S[k] && S[j] != S[k])
-                    {
-                        // printf("%d %d %d\n", i, j, k);
-                        ans++;
-                    }
-                }
-            }
-        }
-    }
-    cout << ans << endl;
-    return (0);
-}
-*/
+//     vector<int> R;
+//     vector<int> G;
+//     vector<int> B;
+//     for (int i = 0; i < M; i++)
+//     {
+//         int location = i + 1;
+//         if (S[i] == 'R')
+//         {
+//             R.push_back(location);
+//         }
+//         else if (S[i] == 'G')
+//         {
+//             G.push_back(location);
+//         }
+//         else
+//         {
+//             B.push_back(location);
+//         }
+//     }
+
+//     ll all = R.size() * G.size() * B.size();
+//     printf("all = %d\n", all);
+//     ll sub = 0;
+//     for (int i = 1; i < M - 2 + 1; i++)
+//     {
+//         for (int j = i + 1; j < M - 1 + 1; j++)
+//         {
+//             int k = 2 * j - i;
+//             if (k <= M + 1)
+//             {
+//                 sub++;
+//             }
+//         }
+//     }
+//     cout << all - sub << endl;
+//     return (0);
+// }
