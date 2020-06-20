@@ -6,11 +6,11 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/20 10:11:09 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/20 11:17:30 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/20 11:23:24 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// なぜか実行時エラーを修正できず。出力はあってルはず
+// なぜか実行時エラーを修正できず。出力はあってルはず。どちらにせよ、計算時間がかかりすぎていたかも
 
 #include <bits/stdc++.h>
 #define PI 3.1415926535897
@@ -45,12 +45,12 @@ int main(void)
     }
     // printf("sum = %lld\n", sum);
 
-    //観光スポットiを消す場合について，
-    // sum -（観光スポットをiとi+1の間のコスト）-（観光スポットをiとi-1の間のコスト）+（観光スポットをi-1とi+1の間のコスト）
+    //観光スポットiを消して出力
     ll ans;
     for (int i = 1; i <= N - 2; i++)
     {
-        ans = sum - abs(A[i + 1] - A[i]) - abs(A[i] - A[i - 1]) + abs(A[i + 1] - A[i - 1]);
+        // ans = sum - abs(A[i + 1] - A[i]) - abs(A[i] - A[i - 1]) + abs(A[i + 1] - A[i - 1]);
+        ans = sum - (abs(A[i] - A[i - 1]) + abs(A[i + 1] - A[i])) + abs(A[i + 1] - A[i - 1]);
         cout << ans << endl;
     }
     return (0);
