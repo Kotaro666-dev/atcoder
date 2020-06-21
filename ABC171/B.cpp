@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/21 19:32:48 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/21 19:32:49 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/21 21:03:46 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,25 @@ const double EPS = 1e-10;
 
 int main(void)
 {
+    int N, K;
+    cin >> N >> K;
 
+    vector<int> p(N);
+    for (int i = 0; i < N; i++)
+    {
+        cin >> p[i];
+    }
+    sort(p.begin(), p.end());
+
+    ll ans = 0;
+    int index = 0;
+    while (K > 0)
+    {
+        ans += p[index];
+        index++;
+        K--;
+    }
+
+    cout << ans << endl;
     return (0);
 }

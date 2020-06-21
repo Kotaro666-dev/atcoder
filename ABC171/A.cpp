@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/21 19:32:53 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/21 19:32:56 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/21 21:01:32 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,19 @@ const double EPS = 1e-10;
 int main(void)
 {
 
+    char a;
+    cin >> a;
+
+    char ans;
+
+    if (a >= 'A' && a <= 'Z')
+    {
+        ans = 'A';
+    }
+    else
+    {
+        ans = 'a';
+    }
+    cout << ans << endl;
     return (0);
 }
