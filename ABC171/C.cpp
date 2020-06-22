@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/21 19:32:40 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/21 21:43:17 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/21 22:57:58 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,19 @@ int main(void)
     int num;
     while (N > 26)
     {
-        num = N / 26;
+        num = (N - 1) / 26;
         remain.push_back(num);
-        N /= 26;
+        N = (N - 1) / 26;
     }
     reverse(remain.begin(), remain.end());
     //debug
     ll last = remain[remain.size() - 1];
-    for (int i = 0; i < remain.size(); i++)
-    {
-        // remain[i]--;
-        cout << remain[i] << " ";
-    }
-    printf("\n");
+    // for (int i = 0; i < remain.size(); i++)
+    // {
+    //     // remain[i]--;
+    //     cout << remain[i] << " ";
+    // }
+    // printf("\n");
     ans += remain[0] - 1 + 'a';
     ll before = remain[0];
     ll calc;

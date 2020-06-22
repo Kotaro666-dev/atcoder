@@ -6,9 +6,11 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/21 19:32:34 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/21 22:39:35 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/22 09:00:28 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// 参考サイト：https://drken1215.hatenablog.com/entry/2020/06/21/224900
 
 #include <bits/stdc++.h>
 #define PI 3.1415926535897
@@ -24,6 +26,11 @@ int main(void)
     cin >> N;
 
     map<int, int> A;
+    for (int i = 1; i <= 1e5; i++)
+    {
+        A[i] = 0;
+    }
+
     ll all = 0;
     for (int i = 0; i < N; i++)
     {
@@ -43,28 +50,12 @@ int main(void)
     {
         cin >> before >> after;
 
-        if (A.count(before) && A.count(after))
+        if (A.count(before))
         {
             A[after] += A[before];
-            printf("%lld %lld\n", A[after], A[before]);
-            // printf("after: %lld, before: %lld\n", A[after], A[before]);
-            result = result - (before * A[before]) + (after * A[after]);
-            // printf("result = %lld, before = %lld, after = %lld\n", result, before * A[before], after * A[after]);
-            // 配列をupdate
+            // result = result - (before * A[before]) + (after * A[before]);
+            result += (after - before) * A[before];
             A[before] = 0;
-        }
-        else if (A.count(before) && !A.count(after))
-        {
-            A[after] += A[before];
-            // printf("%lld %lld\n", A[after], A[before]);
-            // printf("result = %lld, before = %lld, after = %lld\n", result, before * A[before], after * A[after]);
-            result = result - (before * A[before]) + (after * A[after]);
-
-            A[before] = 0;
-        }
-        else if (!A.count(before))
-        {
-            result = result;
         }
         printf("%lld\n", result);
 
