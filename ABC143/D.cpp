@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 11:24:08 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/18 11:51:34 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/24 20:59:36 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int main(void)
         cin >> L[i];
     }
     sort(L.begin(), L.end());
-    for (int i = 0; i < N; i++)
-    {
-        printf("%d ", L[i]);
-    }
+    // for (int i = 0; i < N; i++)
+    // {
+    //     printf("%d ", L[i]);
+    // }
 
     ll ans = 0;
     // a と bを固定 -> c < a + b
