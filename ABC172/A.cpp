@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 18:29:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/06/27 18:29:29 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/06/27 21:00:43 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ const double EPS = 1e-10;
 
 int main(void)
 {
-
+    ll a;
+    cin >> a;
+    ll ans = a + pow(a, 2) + pow(a, 3);
+    cout << ans << endl;
     return (0);
 }
