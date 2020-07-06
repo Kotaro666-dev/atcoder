@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/05 13:10:23 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/07/05 13:10:24 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/07/05 21:02:30 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ const double EPS = 1e-10;
 
 int main(void)
 {
+    int N;
+    cin >> N;
 
+    int sen = 1000;
+    while (sen < N)
+    {
+        sen += 1000;
+    }
+
+    int ans = abs(N - sen);
+    cout << ans << endl;
     return (0);
 }
