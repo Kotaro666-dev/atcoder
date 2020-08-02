@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/02 19:49:45 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/08/02 19:49:46 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/08/02 21:10:50 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,23 @@ const double EPS = 1e-10;
 
 int main(void)
 {
+    int N;
+    double D;
+    cin >> N >> D;
 
+    int cnt = 0;
+    double X, Y;
+    double sum;
+    for (int i = 0; i < N; i++)
+    {
+        cin >> X >> Y;
+        sum = sqrt(pow(X, 2) + pow(Y, 2));
+        if (sum <= D)
+        {
+            // printf("ans : %lf %lf\n", X, Y);
+            cnt++;
+        }
+    }
+    cout << cnt << endl;
     return (0);
 }

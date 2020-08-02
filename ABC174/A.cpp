@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/02 19:49:48 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/08/02 19:50:08 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/08/02 21:00:34 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ const double EPS = 1e-10;
 
 int main(void)
 {
+    int x;
+    cin >> x;
 
+    if (x >= 30)
+        cout << "Yes" << endl;
+    else
+    {
+        cout << "No" << endl;
+    }
+
+    // cout << ans << endl;
     return (0);
 }
