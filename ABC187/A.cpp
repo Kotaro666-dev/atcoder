@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/02 19:49:48 by kkamashi          #+#    #+#             */
-/*   Updated: 2021/01/14 20:41:19 by kkamashi         ###   ########.fr       */
+/*   Created: 2021/01/14 20:41:39 by kkamashi          #+#    #+#             */
+/*   Updated: 2021/01/14 21:05:01 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,17 @@ const double EPS = 1e-10;
 
 int main(void)
 {
-    int x;
-    cin >> x;
+    string A, B;
 
-    if (x >= 30)
-        cout << "Yes" << endl;
-    else
+    cin >> A >> B;
+
+    int sumA = 0;
+    int sumB = 0;
+    for (int i = 0; i < 3; i++)
     {
-        cout << "No" << endl;
+        sumA += (A[i] - '0');
+        sumB += (B[i] - '0');
     }
-
-    // cout << ans << endl;
+    cout << max(sumA, sumB) << endl;
     return (0);
 }

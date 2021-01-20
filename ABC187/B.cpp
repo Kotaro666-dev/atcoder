@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   A.cpp                                              :+:      :+:    :+:   */
+/*   B.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/02 19:49:48 by kkamashi          #+#    #+#             */
-/*   Updated: 2021/01/14 20:41:19 by kkamashi         ###   ########.fr       */
+/*   Created: 2021/01/14 21:05:56 by kkamashi          #+#    #+#             */
+/*   Updated: 2021/01/14 21:23:13 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,29 @@ const double EPS = 1e-10;
 
 int main(void)
 {
-    int x;
-    cin >> x;
+    int N;
+    cin >> N;
 
-    if (x >= 30)
-        cout << "Yes" << endl;
-    else
+    vector<double>x(N);
+    vector<double>y(N);
+    for (int i = 0; i < N; i++)
     {
-        cout << "No" << endl;
+        cin >> x[i] >> y[i];
     }
 
-    // cout << ans << endl;
+    int ans = 0;
+    for (int i = 0; i < N - 1; i++)
+    {
+        for (int j = i + 1; j < N; j++)
+        {
+            double res = (y[j] - y[i]) / (x[j] - x[i]);
+            if (-1.0 <= res && res <= 1.0)
+            {
+                // cout << fixed << setprecision(10) << res << endl;
+                ans++;
+            }
+        }
+    }
+    cout << ans << endl;
     return (0);
 }
